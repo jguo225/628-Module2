@@ -1,10 +1,19 @@
-# 628-Module2 DeadLine: 
+# 628Module2 
+
+DeadLine: 
+
+* March 4th, by 11:59pm CST
+  * Presentation 1 slides
+* March 11th, by 11:59pm CST
+  * Presentation 2 slides
+  * Githut repo and final Jupyter Notebook summary
+  * Kaggle prediction
 
 Github Repository and Contents:
 
 * Code
-  * 
-  * 
+  * `-`
+  * `-`
   * `-`
 * Data
   * testval_data.csv, train_data.csv and description
