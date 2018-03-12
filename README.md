@@ -12,9 +12,9 @@ DeadLine:
 Github Repository and Contents:
 
 * Code
-  * `-`
-  * `-`
-  * `-`
+  * text_processing.py: processing the text
+  * model_fitting.py: multiple methods to fit the prediction podel
+  * linear_model.py: Fitting the interpretable model
 * Data
   * fist2000.csv: first 2000 rows of data
   * train.csv & test.csv: small sets of random samples
