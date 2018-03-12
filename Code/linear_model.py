@@ -10,7 +10,7 @@ wnl = WordNetLemmatizer()
 stemmer = SnowballStemmer("english")
 # stemmer = PorterStemmer()
 stoplist = set(stopwords.words("english"))
-# filename = 'first2000.csv'
+
 def process_review(review):
     new = []
     for rev in review:
@@ -36,7 +36,7 @@ word_dic = {}
 cat_dic = {}
 
 train = pd.read_csv(trainname)
-test = pd.read_csv(testname)
+
 z1 = train.loc[:, 'categories']
 tz1 = cat_process(z1)
 x1 = train.loc[:, 'text']
@@ -45,6 +45,29 @@ a1 = train.loc[:, 'longitude']
 b1 = train.loc[:, 'latitude']
 
 y1 = train.loc[:, 'stars']
+
+columns = []
+
+# Convert the submission dates column to datetime.
+reviews_dates = pd.to_datetime(train["date"])
+
+# Transform functions for the datetime column.
+transform_functions = [
+    lambda x: x.year,
+    lambda x: x.month,
+    lambda x: x.day,
+]
+
+# Apply all functions to the datetime column.
+for func in transform_functions:
+    columns.append(reviews_dates.apply(func))
+
+# Convert the meta features to a numpy array.
+date = np.asarray(columns).T
+year = scale(date[:,0])
+month = scale(date[:,0])
+date = scale(date[:,0])
+
 
 for index in range(len(tx1)):
     for word in tx1[index]:
@@ -61,6 +84,7 @@ for i in range(len(tz1)):
             cat_dic[cat][1] += 1
         else:
             cat_dic[cat] = [y1[i], 1]
+
 
 
 score1 = []
@@ -95,7 +119,7 @@ b1 = scale(b1.values)
 score1 = scale(score1)
 score2 = scale(score2)
 X = np.column_stack((score1, score2))
-X = np.column_stack((X, a1, b1))
+X = np.column_stack((X, a1, b1, year, month, date))
 from sklearn.linear_model import LinearRegression
 lr = LinearRegression()
 lr.fit(X, y4)
