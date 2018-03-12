@@ -17,13 +17,13 @@ Github Repository and Contents:
   * `-`
 * Data
   * fist2000.csv: first 2000 rows of data
-  * train_data.csv 
+  * train.csv & test.csv: small sets of random samples
   * pdf: data description
 * Image
   * Images that were later used in the presentation or summary, and others unused.
 * Jupyter
   * Contains two ipynb files, a "TheFullNotebook.ipynb" and "Executive Summary.ipynb". The latter one is our executive summary file created by Jupyter Notebook. Printing it using Cmd+P will result in 5 pages.
-* Not Important
-  * Not that important files irrelevant to the homework, stuffs like testing on Jupyter Notebook.
+* Slides
+  * Slides for presentation 1 & 2
 
 * README
